@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ホーム - 激しい音楽</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+      overflow-x: hidden;
+      background-color: #fff;
+      position: relative;
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    .intro-text {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3vw;
+      color: black;
+      background: white;
+      padding: 1em 2em;
+      border-radius: 10px;
+      text-align: center;
+      line-height: 1.4;
+      max-width: 90vw;
+      opacity: 0;
+      animation: fadeInOut 4s forwards;
+      z-index: 10000;
+      pointer-events: none;
+      user-select: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes fadeInOut {
+      0% {
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      80% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .container {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease;
+    }
+
+    .container.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .half {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 4vw;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+      transition: opacity 0.3s ease;
+      color: inherit;
+    }
+
+    .left {
+      background-color: #ef4444;
+      color: #111;
+    }
+
+    .right {
+      background-color: #111;
+      color: #ef4444;
+    }
+
+    .half:hover {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .half {
+        font-size: 8vw;
+        height: 50vh;
+      }
+
+      .intro-text {
+        font-size: 6vw;
+        max-width: 90vw;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="intro-text" id="introText">
+    はじめて激しい音楽に触れる人に聴いてほしい<br />
+    二つのジャンル<br />
+    “ラウドロック”と“メロディック・ハードコア”
+  </div>
+
+  <div class="container" id="mainContainer">
+    <div class="half left" onclick="location.href='page2.html'">
+      ラウドロック
+    </div>
+    <div class="half right" onclick="location.href='page3.html'">
+      メロディック・ハードコア
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const intro = document.getElementById('introText');
+      const container = document.getElementById('mainContainer');
+
+      setTimeout(() => {
+        intro.style.display = 'none';
+        container.classList.add('visible');
+        document.body.style.overflow = 'auto';
+      }, 4000);
+    });
+  </script>
+</body>
+
+</html>
