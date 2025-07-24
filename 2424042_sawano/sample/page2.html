@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ラウドロック</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #111;
+            color: #eee;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #111;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1002;
+            border-bottom: 1px solid #333;
+        }
+
+        .page-title {
+            color: #ef4444;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            width: 35px;
+            height: 30px;
+            cursor: pointer;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .menu-toggle span {
+            height: 4px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.open span:nth-child(1) {
+            transform: translateY(13px) rotate(45deg);
+        }
+
+        .menu-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.open span:nth-child(3) {
+            transform: translateY(-13px) rotate(-45deg);
+        }
+
+        nav.menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(-100%);
+            transition: transform 0.4s ease;
+            z-index: 1000;
+        }
+
+        nav.menu.open {
+            transform: translateY(0);
+        }
+
+        nav.menu ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        nav.menu li {
+            margin: 20px 0;
+        }
+
+        nav.menu a {
+            font-size: 2rem;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav.menu a:hover {
+            color: #ef4444;
+        }
+
+        .container {
+            padding: 80px 20px 20px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #f87171;
+            margin-top: 2rem;
+            font-size: 1.5rem;
+        }
+
+        p,
+        li {
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        .artist {
+            margin-top: 1.5rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        iframe {
+            margin-top: 0.5rem;
+            width: 100%;
+            height: 80px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding-top: 70px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="page-title">ラウドロック</div>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span><span></span><span></span>
+        </div>
+    </header>
+
+    <nav class="menu" id="menu">
+        <ul>
+            <li><a href="page1.html">ホーム</a></li>
+            <li><a href="page2.html">ラウドロック</a></li>
+            <li><a href="page3.html">メロディック・ハードコア</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>ラウドロックとは</h2>
+        <p>ラウドロックは、日本語で直訳してしまえば「騒々しいロック」ですが、一般的には「ジャパニーズ・ラウド・ロック（Japanese Loud
+            Rock）」とも呼ばれ、主に2000年代以降に登場した、激しく重厚なサウンドを持つバンドの音楽スタイルを指します。メタル、パンク、エモなどの要素を取り入れたハイブリッドな音楽です。</p>
+
+        <h2>ラウドロックの特徴</h2>
+        <ul>
+            <li><strong>重厚なサウンド</strong>：重低音ギターやエフェクトを駆使した音。</li>
+            <li><strong>ジャンルの融合</strong>：メタル、パンク、エモのエッセンスが融合。</li>
+            <li><strong>シャウトとメロディ</strong>：激しいスクリームと美しいメロディの対比。</li>
+            <li><strong>日本語詞の力強さ</strong>：感情を直接伝える歌詞。</li>
+        </ul>
+
+        <h2>おすすめアーティスト</h2>
+        <div class="artist">SIM</div>
+        <p>轟音と緊張感が走るラウドサウンドに、レゲエのグルーヴを融合させた唯一無二のバンド。激しさの中に芯の通ったメッセージが響く音楽。</p>
+        <iframe data-testid="embed-iframe" style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/1yDYJ7npSt07XLLOKGVkd6?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+        <div class="artist">coldrain</div>
+        <p>全編英語詞で世界基準のサウンドを鳴らすラウドロックバンド。叙情的なメロディと重厚な演奏が胸を撃つ。国内外で戦う、真の実力派。</p>
+        <iframe data-testid="embed-iframe" style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/6tsyEUUDyceiLUMGanxiYe?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+        <div class="artist">Fear,and Loathing in Las Vegas</div>
+        <p>エレクトロとラウドロックを融合させた異端の存在。高速のスクリームとシンセが交錯する、圧倒的サウンド。</p>
+        <iframe data-testid="embed-iframe" style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/3Rb8CWVBpLDOyxafN2Op1w?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
+
+
+    <script>
+
+
+
+
+
+        const toggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('menu');
+
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('open');
+            menu.classList.toggle('open');
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('loaded');
+        });
+
+        document.querySelectorAll('nav.menu a').forEach(link => {
+            link.addEventListener('click', e => {
+                const href = link.getAttribute('href');
+                if (!href || href.startsWith('http') || href.startsWith('#')) return; // 外部リンクやアンカーは除外
+
+                e.preventDefault();
+                toggle.classList.remove('open');
+                menu.classList.remove('open');
+
+                document.body.classList.remove('loaded');
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500);
+            });
+        });
+    </script>
+</body>
+
+</html>

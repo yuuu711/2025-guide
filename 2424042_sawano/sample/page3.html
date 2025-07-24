@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>メロディック・ハードコア</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #111;
+            color: #eee;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.8;
+            min-height: 100vh;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #111;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1002;
+            border-bottom: 1px solid #333;
+        }
+
+        .page-title {
+            color: #ef4444;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            width: 35px;
+            height: 30px;
+            cursor: pointer;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .menu-toggle span {
+            height: 4px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.open span:nth-child(1) {
+            transform: translateY(13px) rotate(45deg);
+        }
+
+        .menu-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.open span:nth-child(3) {
+            transform: translateY(-13px) rotate(-45deg);
+        }
+
+        nav.menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(-100%);
+            transition: transform 0.4s ease;
+            z-index: 1000;
+        }
+
+        nav.menu.open {
+            transform: translateY(0);
+        }
+
+        nav.menu ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        nav.menu li {
+            margin: 20px 0;
+        }
+
+        nav.menu a {
+            font-size: 2rem;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav.menu a:hover {
+            color: #ef4444;
+        }
+
+        .container {
+            padding: 80px 20px 20px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #f87171;
+            margin-top: 2rem;
+            font-size: 1.5rem;
+        }
+
+        p,
+        li {
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        .artist {
+            margin-top: 1.5rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        iframe {
+            margin-top: 0.5rem;
+            width: 100%;
+            height: 80px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding-top: 70px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="page-title">メロディック・ハードコア</div>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span><span></span><span></span>
+        </div>
+    </header>
+
+    <nav class="menu" id="menu">
+        <ul>
+            <li><a href="page1.html">ホーム</a></li>
+            <li><a href="page2.html">ラウドロック</a></li>
+            <li><a href="page3.html">メロディック・ハードコア</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>メロディック・ハードコアとは</h2>
+        <p>メロディック・ハードコアは、ハードコアパンクの攻撃的なサウンドに、よりメロディアスな要素を加えた音楽ジャンルです。スピード感や激しさを持ちながらも、耳に残るメロディや哀愁を感じさせる旋律が特徴で、感情を揺さぶるサウンドが魅力です。
+        </p>
+
+        <h2>メロディック・ハードコアの特徴</h2>
+        <ul>
+            <li><strong>ハイテンポで疾走感</strong><br>BPMの速い曲調で、展開も目まぐるしいのが特徴です。</li>
+            <li><strong>メロディの強調</strong><br>叙情的でキャッチーなメロディをサビに取り入れる楽曲が多いです。</li>
+            <li><strong>エモーショナルな歌詞</strong><br>仲間・社会・自己表現などに対する真っ直ぐなメッセージ性があります。</li>
+        </ul>
+
+        <h2>おすすめアーティスト</h2>
+        <div class="artist">HI-STANDARD</div>
+        <p>日本のメロコアシーンを語るうえで絶対に外せないのがHi-STANDARD。90年代のインディーズブームを牽引し、全英語詞・高速ビートで世界にも挑んだ伝説的存在。</p>
+        <iframe data-testid="embed-iframe" style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/6Q9bwEB5lN6m1DGkqz9XP6?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+        <div class="artist">FACT</div>
+        <p>ハードコアとメロディを融合させた、世界レベルのサウンドを武器に活動したFACT。超高速タッピングやツインボーカルなどテクニカルな演奏が特徴。日本にいながら海外レベルの音に触れられる、貴重な存在。</p>
+        <iframe data-testid="embed-iframe" style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/3ToNtbx9J2IVZbtMhjgHsM?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+        <div class="artist">04 Limited Sazabys</div>
+        <p>キャッチーなメロディと高音ボーカル、エモーショナルな歌詞で10代〜20代に圧倒的支持を獲得。日本詞の曲も多く中毒性の高いサウンド。フェス常連のライブバンドとしても評価が高い。</p>
+        <iframe data-testid="embed-iframe" style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/2f73JwOQWW8HZFCSs5LcrQ?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
+    <script>
+        const toggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('menu');
+
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('open');
+            menu.classList.toggle('open');
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('loaded');
+        });
+
+        document.querySelectorAll('nav.menu a').forEach(link => {
+            link.addEventListener('click', e => {
+                const href = link.getAttribute('href');
+                if (!href || href.startsWith('http') || href.startsWith('#')) return; // 外部リンクやアンカーは除外
+
+                e.preventDefault();
+                toggle.classList.remove('open');
+                menu.classList.remove('open');
+
+                document.body.classList.remove('loaded');
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500);
+            });
+        });
+    </script>
+</body>
+
+</html>
